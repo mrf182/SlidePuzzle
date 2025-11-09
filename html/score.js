@@ -20,7 +20,7 @@
           <div class="points"><span class="points-number" id="pointsNumber">0</span> pts</div>
         </div>
         <div class="progress-row">
-          <div class="progress-bar"><div class="progress" id="progressFill"></div></div>
+          <div class="progress-level"><div class="progress" id="progressFill"></div></div>
           <div class="level-right" id="userLevel">Lvl 1</div>
         </div>
       </div>

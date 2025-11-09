@@ -10,14 +10,19 @@
 </head>
 
 <body>
-    <script src="../../html/score.js"></script>
     <div class="progress-bar"></div>
     <h1 id="title">Coffee</h1>
-    <div id="board"></div>
-    <button id="shuffle">Shuffle</button>
-    <audio id="audio1" controls autoplay loop hidden="hidden">
+    <div id="game-container">
+        <div id="board"></div>
+        <div id="controls">
+            <button id="shuffle">Shuffle</button>
+        </div>
+    </div>
+    <audio id="audio1" loop hidden>
         <source src="../../melodies/melodie 1.mp3" type="audio/mpeg" />
-        <script src="../../html/puzzle.js"></script>
+    </audio>
+    <script src="../../html/score.js"></script>
+    <script src="../../html/puzzle.js"></script>
 </body>
 
 </html>
