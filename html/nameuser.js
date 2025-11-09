@@ -198,7 +198,7 @@ const loginPage = {
         });
         btn.addEventListener('click', () => {
             overlay.style.opacity = '0';
-            setTimeout(() => { window.location.href = 'start.html'; }, 250);
+            setTimeout(() => { window.location.href = 'index.html'; }, 250);
         });
 
         card.append(title, info, btn);
