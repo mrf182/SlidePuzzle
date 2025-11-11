@@ -144,4 +144,6 @@ button.neutral {
   background: #e0e0e0;
   color: #222;
   border: none;
+   margin-top: 2vh;
+  margin-left: 4vh;
 }

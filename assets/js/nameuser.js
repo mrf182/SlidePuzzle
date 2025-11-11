@@ -30,11 +30,11 @@ const loginPage = {
     const userPhone = this.inputFields.phone.element.value.trim();
     const userPassword = this.inputFields.password.element.value.trim();
 
-    if (!this.validateEmail(userEmail)) return this.setFieldError('email', 'הזן כתובת דוא"ל תקינה', btn);
-    if (!this.isValidName(userName)) return this.setFieldError('name', 'הזן שם תקין (2 אותיות ומעלה)', btn);
-    if (!this.isValidName(userLastName)) return this.setFieldError('lastName', 'הזן שם משפחה תקין', btn);
-    if (!this.isValidPhone(userPhone)) return this.setFieldError('phone', 'מספר טלפון חייב להתחיל ב-05 ולהכיל 10 ספרות', btn);
-    if (!this.isValidPassword(userPassword)) return this.setFieldError('password', 'הסיסמה חייבת לפחות 6 תווים, כולל אות ומספר', btn);
+    if (!this.validateEmail(userEmail)) return this.setFieldError('email', 'Please enter a valid email address.', btn);
+    if (!this.isValidName(userName)) return this.setFieldError('name', 'First name must contain at least 2 letters.', btn);
+    if (!this.isValidName(userLastName)) return this.setFieldError('lastName', 'Last name must contain at least 2 letters.', btn);
+    if (!this.isValidPhone(userPhone)) return this.setFieldError('phone', 'Phone number must start with 05 and contain 10 digits.', btn);
+    if (!this.isValidPassword(userPassword)) return this.setFieldError('password', 'Password must be at least 6 characters long and include a letter and a number.', btn);
 
     try {
       const enteredHash = await this.hashPassword(userPassword);
@@ -58,14 +58,14 @@ const loginPage = {
           this.showRegistrationMessage('Welcome back!', userName || userEmail);
           return;
         } else {
-          return this.setFieldError('password', 'הסיסמה שגויה, נסה שוב', btn);
+          return this.setFieldError('password', 'Incorrect password. Please try again.', btn);
         }
       }
 
       await this.addNewUser(userName, userLastName, userEmail, userPhone, userPassword);
     } catch (e) {
-      console.error('שגיאה בתהליך ההתחברות:', e);
-      alert('אירעה שגיאה בלתי צפויה. נסה שוב מאוחר יותר.');
+      console.error('Login process failed:', e);
+      alert('An unexpected error occurred. Please try again later.');
     } finally {
       btn.disabled = false;
     }
@@ -75,7 +75,7 @@ const loginPage = {
     const users = JSON.parse(localStorage.getItem('gameuser') || '[]');
     const exists = users.find(u => u.email?.toLowerCase() === email.toLowerCase());
     if (exists) {
-      this.setFieldError('email', 'כתובת דוא"ל זו כבר רשומה. התחבר או השתמש באחרת');
+      this.setFieldError('email', 'This email is already registered. Please sign in or use a different one.');
       return;
     }
 
@@ -85,7 +85,7 @@ const loginPage = {
     localStorage.setItem('gameuser', JSON.stringify(users));
     localStorage.setItem('slidePuzzleUser', email);
     this.ensureUserScore(email);
-    this.showRegistrationMessage('נרשמת בהצלחה!', name || email);
+    this.showRegistrationMessage('Successfully registered!', name || email);
   },
 
   setupInputFields() {
@@ -121,7 +121,7 @@ const loginPage = {
   },
 
   validateEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); },
-  isValidName(name) { return /^[א-תa-zA-Z]{2,30}$/.test(name); },
+  isValidName(name) { return /^[a-zA-Zא-ת]{2,30}$/.test(name); },
   isValidPhone(phone) { return /^05\d{8}$/.test(phone); },
   isValidPassword(password) { return /^(?=.*[a-zA-Z])(?=.*\d).{6,}$/.test(password); },
 
@@ -190,7 +190,7 @@ const loginPage = {
     info.textContent = displayName;
 
     const btn = document.createElement('button');
-    btn.textContent = 'המשך';
+    btn.textContent = 'Continue';
     Object.assign(btn.style, {
       padding: '10px 16px',
       borderRadius: '6px',
@@ -201,9 +201,7 @@ const loginPage = {
     });
 
     btn.addEventListener('click', () => {
-      const path = getAssetPath('index.html');
-      console.log('[DEBUG] Redirecting to:', path);
-      window.location.href = path;
+      window.location.href = '../../index.html';
     });
 
     card.append(title, info, btn);
@@ -213,11 +211,4 @@ const loginPage = {
   }
 };
 
-// ✅ הפונקציה שמבצעת ניתוב חכם (לפי עומק תקייה)
-function getAssetPath(relativePath) {
-  const depth = location.pathname.split('/').length - 7;
-  return '../'.repeat(depth) + relativePath;
-}
-
-// התחלת האתחול
 window.addEventListener('DOMContentLoaded', () => loginPage.init());

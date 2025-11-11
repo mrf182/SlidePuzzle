@@ -9,12 +9,12 @@ var canClick = false;
 var progressIntervalId = null;
 var gameTimerId = null;
 
-/* ===== עיצוב כפתורים ===== */
+
 function styleButton(button, styleClass) {
   button.classList.add(styleClass);
 }
 
-/* ===== ניהול ניקוד ===== */
+
 function getCurrentUser() {
   return localStorage.getItem('slidePuzzleUser');
 }
@@ -39,7 +39,7 @@ function addScoreToUser(username, points) {
   localStorage.setItem('slidePuzzleScores', JSON.stringify(scores));
 }
 
-/* ===== בניית לוח ===== */
+
 function buildSolvedBoard() {
   imageOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "-1"];
   var board = document.querySelector('#board');
@@ -63,7 +63,7 @@ window.addEventListener('load', function () {
   if (btnS) btnS.addEventListener('click', mix);
 });
 
-/* ===== ערבוב ===== */
+
 function playAudio() {
   try {
     var music = document.getElementById('audio1');
@@ -158,7 +158,7 @@ function changeNeighbor(id, idOriginal) {
   }
 }
 
-/* ===== Game Over ===== */
+
 function showGameOver() {
   if (document.getElementById('game-over-overlay')) return;
   clearTimeout(gameTimerId);
@@ -212,7 +212,7 @@ function showGameOver() {
   gameOver = true;
 }
 
-/* ===== ניצחון ===== */
+
 function showWinMessage(moves) {
   if (document.getElementById('win-overlay')) return;
 
