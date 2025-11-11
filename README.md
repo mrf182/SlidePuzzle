@@ -41,7 +41,7 @@ Built completely with **Vanilla JavaScript**, the game includes real-time valida
 ## 🎥 Live Gameplay
 
 <p align="center">
-  <img src="./assets/slidepuzzle_demo.gif" width="600" alt="Slide Puzzle Gameplay">
+  <img src="./assets/media/slidepuzzle_demo.gif" width="600" alt="Slide Puzzle Gameplay">
 </p>
 
 ---
@@ -49,7 +49,7 @@ Built completely with **Vanilla JavaScript**, the game includes real-time valida
 ## 🖼️ Solved Puzzle Screenshot
 
 <p align="center">
-  <img src="./assets/solved_puzzle.png" width="500" alt="Solved Puzzle Screenshot">
+  <img src="./assets/media/solved_puzzle.png" width="500" alt="Solved Puzzle Screenshot">
 </p>
 
 ---
