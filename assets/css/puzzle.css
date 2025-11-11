@@ -1,20 +1,21 @@
-
+/* קיימים */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 body {
   font-family: 'Cinzel', serif;
   text-align: center;
   color: black;
-  background-image: url(../slide/backround.jpg);
+  background-image: url(../media/backround.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -38,7 +39,7 @@ body {
   justify-content: center;
   gap: 2vh;
   width: 100%;
-  max-height: calc(100vh - 80px); 
+  max-height: calc(100vh - 80px);
 }
 
 #board {
@@ -97,6 +98,50 @@ body {
 }
 
 @keyframes progressAnimation {
-  0% { width: 0%; }
-  100% { width: 100%; }
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+
+button {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+button.primary {
+  background: linear-gradient(90deg, #ccc, #b0b0b0);
+  color: white;
+  border: none;
+  margin-top: 2vh;
+  margin-left: 4vh;
+}
+
+button.outline {
+  background: transparent;
+  color: #ccc;
+  border: 2px solid #ccc;
+  margin-top: 2vh;
+  margin-left: 4vh;
+}
+
+button.neutral {
+  background: #e0e0e0;
+  color: #222;
+  border: none;
 }
