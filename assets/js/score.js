@@ -1,12 +1,10 @@
 (function () {
   const styleLink = document.createElement('link');
   styleLink.rel = 'stylesheet';
-  styleLink.href = getAssetPath('css/score.css'); // ← שימוש בניתוב חכם
+  styleLink.href = '../../assets/css/score.css'; 
   document.head.appendChild(styleLink);
 
-
   if (document.getElementById('siteHeader')) return;
-
 
   const container = document.createElement('div');
   container.id = 'siteHeader';
@@ -60,7 +58,6 @@
 
   document.body.appendChild(container);
 
-
   const getScores = () => {
     try {
       return JSON.parse(localStorage.getItem('slidePuzzleScores') || '{}');
@@ -102,7 +99,6 @@
       progressFill.style.width = '0%';
       primaryBtn.textContent = 'Login';
 
-
       primaryBtn.onclick = () => {
         const path = getAssetPath('pages/nameuser.html');
         window.location.href = path;
@@ -143,16 +139,15 @@
     document.getElementById('profileModal').style.display = 'none';
   }
 
-
   const closeBtn = document.getElementById('closeModalBtn');
   if (closeBtn) closeBtn.onclick = hideProfileModal;
 
   updateHeader();
   window.addEventListener('storage', updateHeader);
 
-
   function getAssetPath(relativePath) {
-    const depth = location.pathname.split('/').length - 7;
+    const depth = location.pathname.split('/').length - 2;
     return '../'.repeat(depth) + 'assets/' + relativePath;
   }
+
 })();
