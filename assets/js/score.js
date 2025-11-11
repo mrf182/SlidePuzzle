@@ -100,8 +100,7 @@
       primaryBtn.textContent = 'Login';
 
       primaryBtn.onclick = () => {
-        const path = getAssetPath('pages/nameuser.html');
-        window.location.href = path;
+        window.location.href = '../../pages/nameuser.html'; 
       };
     }
   }
@@ -144,10 +143,4 @@
 
   updateHeader();
   window.addEventListener('storage', updateHeader);
-
-  function getAssetPath(relativePath) {
-    const depth = location.pathname.split('/').length - 2;
-    return '../'.repeat(depth) + 'assets/' + relativePath;
-  }
-
 })();
